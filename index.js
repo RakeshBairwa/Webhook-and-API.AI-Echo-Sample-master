@@ -114,7 +114,7 @@ restService.post("/audio", function(req, res) {
       break;
     case "mytest":
       speech =
-        '<speak>myTest IPL stands for <sub alias="indian premier league">IPL</sub></speak>';
+        '<p>myTest IPL stands for <sub alias="indian premier league">IPL</sub></p>';
       break;
   }
   return res.json({
