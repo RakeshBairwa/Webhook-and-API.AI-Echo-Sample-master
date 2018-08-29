@@ -112,6 +112,10 @@ restService.post("/audio", function(req, res) {
       speech =
         '<speak>IPL stands for <sub alias="indian premier league">IPL</sub></speak>';
       break;
+       case "your Test":
+      speech =
+        '<speak><say-as interpret-as="telephone" format="1">(781) 771-7777</say-as> </speak>';
+      break;
   }
   return res.json({
     speech: speech,
