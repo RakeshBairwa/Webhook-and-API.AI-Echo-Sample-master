@@ -37,11 +37,11 @@ restService.post("/audio", function(req, res) {
       break;
     case "music two":
       speech =
-        '<speak> ok speeding you car in 3rd gear now <audio clipBegin="1s" clipEnd="3s" src="https://actions.google.com/sounds/v1/transportation/drive_in_reverse_beep_alert.ogg">did not get your audio file</audio></speak>';
+        '<speak> ok reversing your car now <audio clipBegin="1s" clipEnd="3s" src="https://actions.google.com/sounds/v1/transportation/drive_in_reverse_beep_alert.ogg">did not get your audio file</audio></speak>';
       break;
     case "music three":
       speech =
-        '<speak><audio repeatCount="2" soundLevel="-15db" src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio></speak>';
+        '<speak><audio repeatCount="2" soundLevel="-15db" src="https://actions.google.com/sounds/v1/transportation/muscle_car_speeding_highway.ogg">did not get your audio file</audio></speak>';
       break;
     case "music four":
       speech =
