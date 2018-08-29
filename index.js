@@ -118,7 +118,7 @@ restService.post("/audio", function(req, res) {
       break;
   }
   return res.json({
-    speech: "Text response",
+    speech: " ",
    // "type": 0,
     //displayText: speech,
     source: "webhook-echo-sample"
