@@ -113,12 +113,12 @@ restService.post("/audio", function(req, res) {
         '<speak>IPL stands for <sub alias="indian premier league">IPL</sub></speak>';
       break;
   case "mytest":
-      messages =
+      speech =
         '<speak> Rahul did not get your MP3 audio file </speak>';
       break;
   }
   return res.json({
-    speech: messages,
+    speech: speech,
     displayText: speech,
     source: "webhook-echo-sample"
   });
