@@ -33,15 +33,15 @@ restService.post("/audio", function(req, res) {
     //Speech Synthesis Markup Language 
     case "music one":
       speech =
-        '<speak> Ok starting your car <audio src="https://actions.google.com/sounds/v1/transportation/car_horn.ogg">did not get your audio file</audio></speak>';
+        '<speak> Ok starting your car <audio src="https://webchutney.com/audio/start-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music two":
       speech =
-        '<speak> ok reversing your car now <audio clipBegin="1s" clipEnd="3s" src="https://actions.google.com/sounds/v1/transportation/drive_in_reverse_beep_alert.ogg">did not get your audio file</audio></speak>';
+        '<speak> ok reversing your car now <audio clipBegin="1s" clipEnd="3s" src="https://webchutney.com/audio/reversing-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music three":
       speech =
-        '<speak><audio repeatCount="2" soundLevel="-15db" src="https://actions.google.com/sounds/v1/transportation/muscle_car_speeding_highway.ogg">did not get your audio file</audio></speak>';
+        '<speak><audio repeatCount="2" soundLevel="-15db" src="https://webchutney.com/audio/gofast-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music four":
       speech =
