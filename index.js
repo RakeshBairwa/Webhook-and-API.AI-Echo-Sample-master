@@ -22,7 +22,7 @@ restService.post("/echo", function(req, res) {
       : "Seems like some problem. Speak again.";
   return res.json({
     speech: speech,
-   // displayText: speech,
+    displayText: speech,
     source: "webhook-echo-sample"
   });
 });
@@ -115,7 +115,7 @@ restService.post("/audio", function(req, res) {
   }
   return res.json({
     speech: speech,
-  //  displayText: speech,
+    displayText: speech,
     source: "webhook-echo-sample"
   });
 });
@@ -187,7 +187,7 @@ restService.post("/slack-test", function(req, res) {
   };
   return res.json({
     speech: "speech",
-   // displayText: "speech",
+    displayText: "speech",
     source: "webhook-echo-sample",
     data: {
       slack: slack_message
