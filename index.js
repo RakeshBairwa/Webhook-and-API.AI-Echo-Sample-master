@@ -114,7 +114,7 @@ restService.post("/audio", function(req, res) {
       break;
   case "mytest":
       speech =
-        '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>';
+        '<speak>  <audio src="https://www.youtube.com/embed/VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>';
       break;
   }
   return res.json({
