@@ -14,120 +14,120 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-  var fulfillmentText =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.echoText
-      ? req.body.queryResult.parameters.echoText
+  var speech =
+    req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+      ? req.body.result.parameters.echoText
       : "Seems like some problem. Speak again.";
   return res.json({
-    fulfillmentText: fulfillmentText,
-    displayText: fulfillmentText,
+    speech: speech,
+    displayText: speech,
     source: "webhook-echo-sample"
   });
 });
 
 restService.post("/audio", function(req, res) {
-  var fulfillmentText = "";
-  switch (req.body.queryResult.parameters.AudioSample.toLowerCase()) {
-    //fulfillmentText Synthesis Markup Language 
+  var speech = "";
+  switch (req.body.result.parameters.AudioSample.toLowerCase()) {
+    //Speech Synthesis Markup Language 
     case "music one":
-      fulfillmentText =
+      speech =
         '<speak> Ok starting your car <audio src="https://webchutney.com/audio/start-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music two":
-      fulfillmentText =
+      speech =
         '<speak> ok reversing your car now <audio clipBegin="1s" clipEnd="3s" src="https://webchutney.com/audio/reversing-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music three":
-      fulfillmentText =
+      speech =
         '<speak>ok fast your car now  <audio repeatCount="2" soundLevel="-15db" src="https://webchutney.com/audio/gofast-car.mp3">did not get your audio file</audio></speak>';
       break;
     case "music four":
-      fulfillmentText =
+      speech =
         '<speak><audio speed="200%" src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio></speak>';
       break;
     case "music five":
-      fulfillmentText =
+      speech =
         '<audio src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio>';
       break;
     case "delay":
-      fulfillmentText =
+      speech =
         '<speak>Let me take a break for 3 seconds. <break time="3s"/> I am back again.</speak>';
       break;
-    //https://www.w3.org/TR/fulfillmentText-synthesis/#S3.2.3
+    //https://www.w3.org/TR/speech-synthesis/#S3.2.3
     case "cardinal":
-      fulfillmentText = '<speak><say-as interpret-as="cardinal">12345</say-as></speak>';
+      speech = '<speak><say-as interpret-as="cardinal">12345</say-as></speak>';
       break;
     case "ordinal":
-      fulfillmentText =
+      speech =
         '<speak>I stood <say-as interpret-as="ordinal">10</say-as> in the class exams.</speak>';
       break;
     case "characters":
-      fulfillmentText =
+      speech =
         '<speak>Hello is spelled as <say-as interpret-as="characters">Hello</say-as></speak>';
       break;
     case "fraction":
-      fulfillmentText =
+      speech =
         '<speak>Rather than saying 24+3/4, I should say <say-as interpret-as="fraction">24+3/4</say-as></speak>';
       break;
     case "bleep":
-      fulfillmentText =
+      speech =
         '<speak>I do not want to say <say-as interpret-as="bleep">F&%$#</say-as> word</speak>';
       break;
     case "unit":
-      fulfillmentText =
+      speech =
         '<speak>This road is <say-as interpret-as="unit">50 foot</say-as> wide</speak>';
       break;
     case "verbatim":
-      fulfillmentText =
+      speech =
         '<speak>You spell HELLO as <say-as interpret-as="verbatim">hello</say-as></speak>';
       break;
     case "date one":
-      fulfillmentText =
+      speech =
         '<speak>Today is <say-as interpret-as="date" format="yyyymmdd" detail="1">2017-12-16</say-as></speak>';
       break;
     case "date two":
-      fulfillmentText =
+      speech =
         '<speak>Today is <say-as interpret-as="date" format="dm" detail="1">16-12</say-as></speak>';
       break;
     case "date three":
-      fulfillmentText =
+      speech =
         '<speak>Today is <say-as interpret-as="date" format="dmy" detail="1">16-12-2017</say-as></speak>';
       break;
     case "time":
-      fulfillmentText =
+      speech =
         '<speak>It is <say-as interpret-as="time" format="hms12">2:30pm</say-as> now</speak>';
       break;
     case "telephone one":
-      fulfillmentText =
+      speech =
         '<speak><say-as interpret-as="telephone" format="91">09012345678</say-as> </speak>';
       break;
     case "telephone two":
-      fulfillmentText =
+      speech =
         '<speak><say-as interpret-as="telephone" format="1">(781) 771-7777</say-as> </speak>';
       break;
     // https://www.w3.org/TR/2005/NOTE-ssml-sayas-20050526/#S3.3
     case "alternate":
-      fulfillmentText =
+      speech =
         '<speak>IPL stands for <sub alias="indian premier league">IPL</sub></speak>';
       break;
   case "mytest":
-      fulfillmentText =
+      speech =
         '<speak> ok mytest  <audio src=" https://webchutney.com/audio/mytest.mp3">did not get your MP3 audio file</audio></speak>'
        
       break;
   }
   return res.json({
-    fulfillmentText: fulfillmentText,
-    displayText: fulfillmentText,
+    speech: speech,
+    displayText: speech,
     source: "webhook-echo-sample"
   });
 });
 
 restService.post("/video", function(req, res) {
   return res.json({
-    fulfillmentText:
+    speech:
       '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>',
     displayText:
       '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>',
@@ -191,10 +191,10 @@ restService.post("/slack-test", function(req, res) {
     ]
   };
   return res.json({
-    fulfillmentText: "fulfillmentText",
-    displayText: "fulfillmentText",
+    speech: "speech",
+    displayText: "speech",
     source: "webhook-echo-sample",
-    payload: {
+    data: {
       slack: slack_message
     }
   });
